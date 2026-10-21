@@ -14,16 +14,37 @@ int memoryTestThree() {
      */
 }
 void* fscMemorySetup(memoryStructure* m, fscAllocationMethod am, size_t sizeInBytes) {
-    /* Students Fill in */
+    void *base = malloc(sizeInBytes);
+
+    if(base == 0)
+    {
+        return 0;
+    }
+
+    m->base = base;
+    m->head = (fsc_free_node_t*) base;
+    m->head->size = sizeInBytes - sizeof (fsc_free_node_t);
+    m->head->next = 0;
+
+    return base;
 }
 
 /* very clearly for FIRST_FIT_RETURN_FIRST */
 void* fscMalloc(memoryStructure* m, size_t requestedSizeInBytes) {
-    /* Students Fill in */
+    fsc_free_node_t* current = NULL;
+    fsc_free_node_t* previous = NULL;
+
+    if(current->size + sizeof (fsc_free_node_t) >=
+        requestedSizeInBytes + sizeof (fsc_free_node_t))
+    {
+        m->head->size = current->size;
+    }
+
+    return 0;
 }
 
 void fscFree(memoryStructure* m, void * returnedMemory) {
-    /* Students Fill in */
+    return *returnedMemory;
 } // fscfree()
 
 /* keep for students */
