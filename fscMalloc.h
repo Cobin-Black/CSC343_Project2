@@ -18,6 +18,8 @@
     // alloc_header: prepends each returned allocated block
     typedef struct {
         /* See chapter 17, page 5 */
+        size_t size;
+        int magicNumber;
     } fsc_alloc_header_t;
 
 
@@ -42,7 +44,8 @@
          /* Given the test code calling printFreeList()
           * you probably want a field:
           */
-           fsc_free_node_t* head;
+        fsc_free_node_t* head;
+        void* base;
     } memoryStructure;
     // My stuff
 
