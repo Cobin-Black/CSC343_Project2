@@ -1,0 +1,3 @@
+F:/Classes/FarmingDale/Final Semester/OS/Projects/Project2_Memory_Management/memoryManagement_STUDENT_clion/cmake-build-debug/CMakeFiles/memoryManagement.dir
+F:/Classes/FarmingDale/Final Semester/OS/Projects/Project2_Memory_Management/memoryManagement_STUDENT_clion/cmake-build-debug/CMakeFiles/edit_cache.dir
+F:/Classes/FarmingDale/Final Semester/OS/Projects/Project2_Memory_Management/memoryManagement_STUDENT_clion/cmake-build-debug/CMakeFiles/rebuild_cache.dir

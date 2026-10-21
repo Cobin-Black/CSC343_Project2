@@ -1,0 +1,20 @@
+[
+{
+  "directory": "F:/Classes/FarmingDale/Final Semester/OS/Projects/Project2_Memory_Management/memoryManagement_STUDENT_clion/cmake-build-debug",
+  "command": "C:\\PROGRA~1\\JETBRA~1\\CLION2~1.4\\bin\\mingw\\bin\\gcc.exe -g -std=gnu11 -fdiagnostics-color=always -o CMakeFiles\\memoryManagement.dir\\main.c.obj -c \"F:\\Classes\\FarmingDale\\Final Semester\\OS\\Projects\\Project2_Memory_Management\\memoryManagement_STUDENT_clion\\main.c\"",
+  "file": "F:/Classes/FarmingDale/Final Semester/OS/Projects/Project2_Memory_Management/memoryManagement_STUDENT_clion/main.c",
+  "output": "F:/Classes/FarmingDale/Final Semester/OS/Projects/Project2_Memory_Management/memoryManagement_STUDENT_clion/cmake-build-debug/CMakeFiles/memoryManagement.dir/main.c.obj"
+},
+{
+  "directory": "F:/Classes/FarmingDale/Final Semester/OS/Projects/Project2_Memory_Management/memoryManagement_STUDENT_clion/cmake-build-debug",
+  "command": "C:\\PROGRA~1\\JETBRA~1\\CLION2~1.4\\bin\\mingw\\bin\\gcc.exe -g -std=gnu11 -fdiagnostics-color=always -o CMakeFiles\\memoryManagement.dir\\fscMalloc.c.obj -c \"F:\\Classes\\FarmingDale\\Final Semester\\OS\\Projects\\Project2_Memory_Management\\memoryManagement_STUDENT_clion\\fscMalloc.c\"",
+  "file": "F:/Classes/FarmingDale/Final Semester/OS/Projects/Project2_Memory_Management/memoryManagement_STUDENT_clion/fscMalloc.c",
+  "output": "F:/Classes/FarmingDale/Final Semester/OS/Projects/Project2_Memory_Management/memoryManagement_STUDENT_clion/cmake-build-debug/CMakeFiles/memoryManagement.dir/fscMalloc.c.obj"
+},
+{
+  "directory": "F:/Classes/FarmingDale/Final Semester/OS/Projects/Project2_Memory_Management/memoryManagement_STUDENT_clion/cmake-build-debug",
+  "command": "C:\\PROGRA~1\\JETBRA~1\\CLION2~1.4\\bin\\mingw\\bin\\gcc.exe -g -std=gnu11 -fdiagnostics-color=always -o CMakeFiles\\memoryManagement.dir\\memoryTest.c.obj -c \"F:\\Classes\\FarmingDale\\Final Semester\\OS\\Projects\\Project2_Memory_Management\\memoryManagement_STUDENT_clion\\memoryTest.c\"",
+  "file": "F:/Classes/FarmingDale/Final Semester/OS/Projects/Project2_Memory_Management/memoryManagement_STUDENT_clion/memoryTest.c",
+  "output": "F:/Classes/FarmingDale/Final Semester/OS/Projects/Project2_Memory_Management/memoryManagement_STUDENT_clion/cmake-build-debug/CMakeFiles/memoryManagement.dir/memoryTest.c.obj"
+}
+]
