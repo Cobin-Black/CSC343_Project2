@@ -86,7 +86,56 @@ void* fscMalloc(memoryStructure* m, size_t requestedSizeInBytes) {
 }
 
 void fscFree(memoryStructure* m, void * returnedMemory) {
-    return *returnedMemory;
+    if(returnedMemory == 0)
+    {
+        return;
+    }
+
+    //Step back from pointer and find the header
+    fsc_alloc_header_t* header =
+        (fsc_alloc_header_t*) ((char*)returnedMemory - sizeof(fsc_alloc_header_t));
+
+    assert(header->magicNumber == FSC_MAGIC);
+
+    //This section turns the header found into a free node
+    size_t blockTotal = header->size + sizeof(fsc_alloc_header_t);
+    fsc_free_node_t* node = (fsc_free_node_t*) header;
+    node->size = blockTotal - sizeof(fsc_free_node_t);
+
+    //This section makes sure the list stays sorted by address
+    fsc_free_node_t* previous = 0;
+    fsc_free_node_t* current = m->head;
+    while(current != 0 && current < node)
+    {
+        previous = current;
+        current = current->next;
+    }
+
+    node->next = current;
+    if(previous == 0)
+    {
+        m->head = node;
+    }
+    else
+    {
+        previous->next = node;
+    }
+
+    //Coalesce with the block after the new freed block
+    if(current != 0
+        && (char*) node + sizeof(fsc_free_node_t) + node->size == (char*) current)
+    {
+        node->size += sizeof(fsc_free_node_t) + current->size;
+        node->next = current->next;
+    }
+
+    //Coalesce with the block before the new freed block
+    if(previous != 0
+        && (char*) previous + sizeof(fsc_free_node_t) + previous->size == (char*) node)
+    {
+        previous->size += sizeof(fsc_free_node_t) + node->size;
+        previous->next = node->next;
+    }
 } // fscfree()
 
 void fscMemoryCleanup(memoryStructure* m)
