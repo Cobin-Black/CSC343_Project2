@@ -42,7 +42,47 @@ void* fscMalloc(memoryStructure* m, size_t requestedSizeInBytes) {
         current = current->next;
     }
 
-    return 0;
+    //If there is not a space big enough
+    if (current == 0)
+    {
+        return 0;
+    }
+
+    //This section saves what is needed from the node before overwriting it
+    size_t blockTotal = current->size + sizeof(fsc_free_node_t);
+    fsc_free_node_t* nextNode = current->next;
+    size_t leftOver = blockTotal - spaceNeeded;
+
+    fsc_alloc_header_t* header = (fsc_alloc_header_t*) current;
+    fsc_free_node_t* replacement;
+
+    //Split the node and have the new free node after the block
+    if(leftOver >= sizeof(fsc_free_node_t))
+    {
+        replacement = (fsc_free_node_t*) ((char*) current + spaceNeeded);
+        replacement->size = leftOver - sizeof(fsc_free_node_t);
+        replacement->next = nextNode;
+        header->size = requestedSizeInBytes;
+    }
+    //leftOver is too small to hold the node
+    else
+    {
+        replacement = nextNode;
+        header->size = blockTotal - sizeof(fsc_alloc_header_t);
+    }
+
+    header->magicNumber = FSC_MAGIC;
+
+    if(previous == 0)
+    {
+        m->head = replacement;
+    }
+    else
+    {
+        previous->next = replacement;
+    }
+
+    return (char*) header + sizeof(fsc_alloc_header_t);
 }
 
 void fscFree(memoryStructure* m, void * returnedMemory) {
