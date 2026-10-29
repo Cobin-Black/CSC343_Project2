@@ -31,8 +31,9 @@ void* fscMemorySetup(memoryStructure* m, fscAllocationMethod am, size_t sizeInBy
 
 /* very clearly for FIRST_FIT_RETURN_FIRST */
 void* fscMalloc(memoryStructure* m, size_t requestedSizeInBytes) {
-    fsc_free_node_t* current = NULL;
-    fsc_free_node_t* previous = NULL;
+    fsc_free_node_t* current = m->head;
+    fsc_free_node_t* previous = 0;
+    size_t spaceNeeded = requestedSizeInBytes + sizeof(fsc_alloc_header_t);
 
     if(current->size + sizeof (fsc_free_node_t) >=
         requestedSizeInBytes + sizeof (fsc_free_node_t))
