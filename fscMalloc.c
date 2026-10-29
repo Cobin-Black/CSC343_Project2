@@ -47,6 +47,13 @@ void fscFree(memoryStructure* m, void * returnedMemory) {
     return *returnedMemory;
 } // fscfree()
 
+void fscMemoryCleanup(memoryStructure* m)
+{
+    free(m->base);
+    m->base = 0;
+    m->head = 0;
+}
+
 /* keep for students */
 void printFreeList(FILE * out, fsc_free_node_t* head) {
     /* given a node, prints the list. */
