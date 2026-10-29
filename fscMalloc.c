@@ -35,8 +35,8 @@ void* fscMalloc(memoryStructure* m, size_t requestedSizeInBytes) {
     fsc_free_node_t* previous = 0;
     size_t spaceNeeded = requestedSizeInBytes + sizeof(fsc_alloc_header_t);
 
-    if(current->size + sizeof (fsc_free_node_t) >=
-        requestedSizeInBytes + sizeof (fsc_free_node_t))
+    //Walk through the list to see if there are a free space big enough for requested size
+    while(current != 0 && current->size + sizeof(fsc_free_node_t) < spaceNeeded)
     {
         m->head->size = current->size;
     }
