@@ -5,6 +5,7 @@
 #include <stdlib.h> /* for rand() */
 #include <time.h> /* for the init of rand */
 #include <stddef.h> /* for size_t */
+#define FSC_MAGIC 1234567
 
 /* student written memory test */
 int memoryTestThree() {
